@@ -1,34 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <nav className='navbar navbar-expand-lg navbar-dark main-color py-3'>
+      <div className='container-fluid'>
+        <span className='navbar-brand'>Luv 2 Read</span>
+        <button className='navbar-toggler' type='button'
+          data-bs-toggle='collapse' data-bs-target='#navbarNavDropdown'
+          aria-controls='navbarNavDropdown' aria-expanded='false'
+          aria-label='Toggle Navigation'
+        >
+          <span className='navbar-toggler-icon'></span>
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <div className='collapse navbar-collapse' id='navbarNavDropdown'>
+          <ul className='navbar-nav'>
+            <li className='nav-item'>
+              <a className='nav-link'>Home</a>
+            </li>
+            <li className='nav-item'>
+              <a className='nav-link' >Search Books</a>
+            </li>
+
+              <li className='nav-item'>
+                <a className='nav-link' >Shelf</a>
+              </li>
+            
+           
+              <li className='nav-item'>
+                <a className='nav-link' >Admin</a>
+              </li>
+            
+          </ul>
+          <ul className='navbar-nav ms-auto'>
+          
+              <li className='nav-item m-1'>
+                <a type='button' className='btn btn-outline-light'>Sign in</a>
+              </li>
+              <li>
+                <button className='btn btn-outline-light'>Logout</button>
+              </li>
+          </ul>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </nav>
   )
 }
 
