@@ -1,6 +1,6 @@
 import './App.css'
-import Carousel from './layouts/HomePage/Carousel'
-import ExploreTopBooks from './layouts/HomePage/ExploreTopBooks'
+import HomePage from './layouts/HomePage/HomePage'
+import Footer from './layouts/NavBarAndFooter/Footer'
 import NavBar from './layouts/NavBarAndFooter/NavBar'
 
 function App() {
@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <NavBar/>
-      <ExploreTopBooks/>
-      <Carousel/>
+      <HomePage/>
+      <Footer/>
     </>
   )
 }

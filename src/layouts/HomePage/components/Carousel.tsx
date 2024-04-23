@@ -1,4 +1,4 @@
-import img from "../../Images/BooksImages/book-luv2code-1000.png";
+import ReturnBook from "./ReturnBook";
 
 export default function Carousel() {
   return (
@@ -10,49 +10,25 @@ export default function Carousel() {
         id="carouselExampleControls"
         className="carousel carousel-dark slide mt-5 
         d-none d-lg-block"
-        data-bs-interval="false">
+        data-bs-interval="false"
+      >
         {/* Desktop */}
         <div className="carousel-inner">
           <div className="carousel-item active">
             <div className="row d-flex justify-content-center align-items-center">
-              <div className="col-xs-6 col-sm-6 col-md-4 col-lg-3 mb-3">
-                <div className="text-center">
-                  <img src={img} width="151" height="233" alt="book" />
-                  <h6 className="mt-2">Book</h6>
-                  <p>Luv2Code</p>
-                  <a className="btn main-color text-white" href="#">
-                    Reserve
-                  </a>
-                </div>
-              </div>
+            <ReturnBook />
+            <ReturnBook />
+            <ReturnBook />
             </div>
           </div>
           <div className="carousel-item">
             <div className="row d-flex justify-content-center align-items-center">
-              <div className="col-xs-6 col-sm-6 col-md-4 col-lg-3 mb-3">
-                <div className="text-center">
-                  <img src={img} width="151" height="233" alt="book" />
-                  <h6 className="mt-2">Book</h6>
-                  <p>Luv2Code</p>
-                  <a className="btn main-color text-white" href="#">
-                    Reserve
-                  </a>
-                </div>
-              </div>
+              <ReturnBook />
             </div>
           </div>
           <div className="carousel-item">
             <div className="row d-flex justify-content-center align-items-center">
-              <div className="col-xs-6 col-sm-6 col-md-4 col-lg-3 mb-3">
-                <div className="text-center">
-                  <img src={img} width="151" height="233" alt="book" />
-                  <h6 className="mt-2">Book</h6>
-                  <p>Luv2Code</p>
-                  <a className="btn main-color text-white" href="#">
-                    Reserve
-                  </a>
-                </div>
-              </div>
+              <ReturnBook />
             </div>
           </div>
         </div>
@@ -86,14 +62,7 @@ export default function Carousel() {
       {/* Mobile */}
       <div className="d-lg-none mt-3">
         <div className="row d-flex justify-content-center align-items-center">
-          <div className="text-center">
-            <img src={img} width="151" height="233" alt="book" />
-            <h6 className="mt-2">Book</h6>
-            <p>Luv2Code</p>
-            <a className="btn main-color text-white" href="#">
-              Reserve
-            </a>
-          </div>
+          <ReturnBook />
         </div>
       </div>
       <div className="homepage-carousel-title mt-3">
