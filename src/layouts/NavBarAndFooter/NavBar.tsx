@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import logo from '../../Images/Logo/KLOGO.png';
 
 export default function NavBar() {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark main-color py-3'>
       <div className='container-fluid'>
-        <span className='navbar-brand'>K</span>
+        <span className='navbar-brand'><img width="70" height="70" src={logo}/></span>
         <button className='navbar-toggler' type='button'
           data-bs-toggle='collapse' data-bs-target='#navbarNavDropdown'
           aria-controls='navbarNavDropdown' aria-expanded='false'
