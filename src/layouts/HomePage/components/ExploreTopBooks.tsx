@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 
 export default function ExploreTopBooks() {
   return (
@@ -7,8 +8,8 @@ export default function ExploreTopBooks() {
                 <div>
                     <h1 className='display-5 fw-bold'>Find your next adventure</h1>
                     <p className='col-md-8 fs-4'>Where would you like to go next?</p>
-                    <a type='button' className='btn main-color btn-lg text-white' href='#'>
-                        Explore top books</a>
+                    <Link to='/search' type='button' className='btn main-color btn-lg text-white' >
+                        Explore top books</Link>
                 </div>
             </div>
         </div>
