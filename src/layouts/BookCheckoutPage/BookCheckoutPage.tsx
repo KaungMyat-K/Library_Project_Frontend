@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BookModel from "../../models/BookModel";
 import SpinnerLoading from "../Utils/SpinnerLoading";
+import { StarsReview } from "../Utils/StarReview";
 
 export default function BookCheckoutPage() {
   const [book, setBook] = useState<BookModel>();
@@ -31,10 +32,11 @@ export default function BookCheckoutPage() {
         category: responseJson.category,
         img: responseJson.img,
       };
-
+      
       setBook(loadedBook);
       setIsLoading(false);
     };
+
     fetchBook().catch((error: any) => {
       setIsLoading(false);
       setHttpError(error.message);
@@ -97,6 +99,7 @@ export default function BookCheckoutPage() {
             <h2>{book?.title}</h2>
             <h5 className="text-primary">{book?.author}</h5>
             <p className="lead">{book?.description}</p>
+            <StarsReview rating={4} size={32}/>
           </div>
         </div>
         <hr />
