@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import BookModel from "../../models/BookModel"
+import { LeaveAReview } from "../Utils/LeaveAReview"
 
 export const CheckoutAndReviewBox: React.FC<{ book: BookModel | undefined, mobile: boolean, 
     currentLoansCount: number, isAuthenticated: any, isCheckedOut: boolean, 

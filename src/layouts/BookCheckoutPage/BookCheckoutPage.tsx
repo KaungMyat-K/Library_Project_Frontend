@@ -6,6 +6,7 @@ import { CheckoutAndReviewBox } from "./CheckoutAndReviewBox";
 import ReviewModel from "../../models/ReviewModel";
 import { LatestReviews } from "./LatestReviews";
 import { useOktaAuth } from "@okta/okta-react";
+import ReviewRequestModel from "../../models/ReviewRequestModel";
 
 export default function BookCheckoutPage() {
   const { authState } = useOktaAuth();
@@ -23,6 +24,7 @@ export default function BookCheckoutPage() {
   const [isLoadingCurrentLoansCount, setIsLoadingCurrentLoansCount] =
     useState(true);
   const [isLoadingBookCheckedOut, setIsLoadingBookCheckedOut] = useState(true);
+
 
   const bookId = window.location.pathname.split("/")[2];
 
@@ -57,7 +59,7 @@ export default function BookCheckoutPage() {
       setIsLoading(false);
       setHttpError(error.message);
     });
-  }, []);
+  }, [isCheckedOut]);
 
   useEffect(() => {
     const fetchBookReviews = async () => {
@@ -100,7 +102,7 @@ export default function BookCheckoutPage() {
       setIsLoadingReview(false);
       setHttpError(error.message);
     });
-  }, []);
+  }, [isReviewLeft]);
 
   useEffect(() => {
     const fetchUserReviewBook = async () => {
@@ -183,9 +185,11 @@ export default function BookCheckoutPage() {
     });
   }, [authState]);
 
-  if (isLoading || isLoadingReview || isLoadingCurrentLoansCount) {
-    return <SpinnerLoading />;
-  }
+  if (isLoading || isLoadingReview || isLoadingCurrentLoansCount || isLoadingBookCheckedOut || isLoadingUserReview) {
+    return (
+        <SpinnerLoading />
+    )
+}
 
   if (httpError) {
     return (
@@ -210,6 +214,29 @@ export default function BookCheckoutPage() {
     }
     setIsCheckedOut(true);
   }
+
+  async function submitReview(starInput: number, reviewDescription: string) {
+    let bookId: number = 0;
+    if (book?.id) {
+        bookId = book.id;
+    }
+
+    const reviewRequestModel = new ReviewRequestModel(starInput, bookId, reviewDescription);
+    const url = `http://localhost:8080/api/reviews/secure`;
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reviewRequestModel)
+    };
+    const returnResponse = await fetch(url, requestOptions);
+    if (!returnResponse.ok) {
+        throw new Error('Something went wrong!');
+    }
+    setIsReviewLeft(true);
+}
 
   return (
     <div>
