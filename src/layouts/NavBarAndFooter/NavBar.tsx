@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../../Images/Logo/KLOGO.png';
 import { useOktaAuth } from "@okta/okta-react";
 import SpinnerLoading from "../Utils/SpinnerLoading";
@@ -31,12 +31,12 @@ export default function NavBar() {
             <li className='nav-item'>
               <Link to='/search' className='nav-link' >Search Books</Link>
             </li>
-              <li className='nav-item'>
-                <a className='nav-link' >Shelf</a>
+            {authState.isAuthenticated && 
+                <li className='nav-item'>
+                <NavLink to='/shelf' className='nav-link' >Shelf</NavLink>
               </li>
-              <li className='nav-item'>
-                <a className='nav-link' >Admin</a>
-              </li>
+            
+            }
           </ul>
           <ul className='navbar-nav ms-auto'>     
               {!authState.isAuthenticated ? 
