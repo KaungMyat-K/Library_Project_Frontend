@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { HistoryPage } from "./components/HistoryPage";
 import { Loans } from "./components/Loans";
+import { HistoryPage } from "./components/HistoryPage";
 
 export const ShelfPage = () => {
 
