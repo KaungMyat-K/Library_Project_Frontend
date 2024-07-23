@@ -11,10 +11,10 @@ export const HistoryPage = () => {
     const [isLoadingHistory, setIsLoadingHistory] = useState(true);
     const [httpError, setHttpError] = useState(null);
 
-    // Histories
+
     const [histories, setHistories] = useState<HistoryModel[]>([]);
 
-    // Pagination
+
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
