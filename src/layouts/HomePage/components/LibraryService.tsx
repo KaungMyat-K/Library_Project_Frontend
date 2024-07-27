@@ -19,7 +19,9 @@ export default function LibraryService() {
                     </p>
                     <div className='d-grid gap-2 justify-content-md-start mb-4 mb-lg-3'>
                     {authState?.isAuthenticated ? 
-                <Link to='search' type="buttton" className="btn main-color btn-lg px-4 me-md-2 fw-bold text-white">Explore top books</Link>
+                <Link to='/messages' type='button' className='btn main-color btn-lg px-4 me-md-2 fw-bold text-white'>
+                Library Services
+                </Link> 
                 :
                 <Link to='/login' className="btn btn-primary btn-lg text-white">Sign up</Link>
               }
